@@ -2,6 +2,10 @@
   "name": "branding-web",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=20.11.0",
+    "npm": ">=10.2.4"
+  },
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
