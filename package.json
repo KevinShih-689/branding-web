@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "format": "prettier --write .",
+    "prepare": "husky"
   },
   "dependencies": {
     "react": "19.1.0",
@@ -22,6 +24,14 @@
     "tailwindcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "15.5.9",
-    "@eslint/eslintrc": "^3"
+    "@eslint/eslintrc": "^3",
+    "prettier": "^3.5.1",
+    "eslint-config-prettier": "^10.0.1",
+    "prettier-plugin-tailwindcss": "^0.6.11",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.3"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,css,md}": "prettier --write"
   }
 }
