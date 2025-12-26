@@ -1,0 +1,39 @@
+@theme {
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+
+  --color-primary-main: var(--primary-main);
+  --color-primary-light: var(--primary-light);
+  --color-primary-dark: var(--primary-dark);
+
+  --color-secondary-main: var(--secondary-main);
+
+  --color-error-main: var(--error-main);
+  --color-error-light: var(--error-light);
+  --color-error-dark: var(--error-dark);
+
+  --color-warning-main: var(--warning-main);
+  --color-warning-light: var(--warning-light);
+  --color-warning-dark: var(--warning-dark);
+
+  --color-info-main: var(--info-main);
+  --color-info-light: var(--info-light);
+  --color-info-dark: var(--info-dark);
+
+  --color-success-main: var(--success-main);
+  --color-success-light: var(--success-light);
+  --color-success-dark: var(--success-dark);
+
+  --color-background-default: var(--background-default);
+  --color-background-paper: var(--background-paper);
+  --color-background-section: var(--background-section);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-accent: var(--text-accent);
+
+  --color-border-main: var(--border-main);
+}
