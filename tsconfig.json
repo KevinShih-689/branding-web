@@ -18,7 +18,11 @@
       "@/*": ["*"],
       "@component/*": ["components/*"],
       "@features/*": ["features/*"],
-      "@lib/*": ["lib/*"]
+      "@lib/*": ["lib/*"],
+      "@services/*": ["services/*"],
+      "@repositories/*": ["repositories/*"],
+      "@types/*": ["types/*"],
+      "@db/*": ["db/*"]
     },
     "plugins": [
       {

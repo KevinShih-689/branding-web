@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useChat } from '@ai-sdk/react';
-import { UIMessage } from 'ai';
+import { UIMessage, DefaultChatTransport } from 'ai';
 import Fab from '@mui/material/Fab';
 import ForumIcon from '@mui/icons-material/Forum';
 import Drawer from '@mui/material/Drawer';
@@ -16,7 +16,11 @@ const Chat = () => {
   const [input, setInput] = useState<string>('');
 
   const theme = useTheme();
-  const { messages, sendMessage } = useChat();
+  const { messages, sendMessage } = useChat({
+    transport: new DefaultChatTransport({
+      api: '/api/v1/chat',
+    }),
+  });
 
   console.log('🚀 ~ Chat ~ messages:', messages);
 

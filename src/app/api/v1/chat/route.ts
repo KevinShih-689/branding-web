@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { streamText, convertToModelMessages, UIMessage } from 'ai';
-import ollama from '@/lib/ollama';
+import ollama from '@/lib/ollama/ollama';
 
 export async function POST(req: Request) {
   try {
