@@ -1,6 +1,6 @@
 export interface PaginatedResponse<T> {
   data: T[];
-  metadata: {
+  pagination: {
     page: number;
     limit: number;
     total: number;

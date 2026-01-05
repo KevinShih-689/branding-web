@@ -37,7 +37,7 @@ export function createSuccessResponse<T = unknown>(
   } = {},
 ): NextResponse<ApiResponse<T>> {
   const { data = null, message = 'Success', httpStatus = 200 } = params;
-  return createApiResponse(data, { status: 'success', message }, httpStatus);
+  return createApiResponse<T>(data, { status: 'success', message }, httpStatus);
 }
 
 /**
@@ -55,37 +55,4 @@ export function createErrorResponse(params: {
 }): NextResponse<ApiResponse<null>> {
   const { message, status = 'Error', httpStatus = 500 } = params;
   return createApiResponse(null, { status, message }, httpStatus);
-}
-
-/**
- * Creates a not found API response
- * @param params - Response parameters
- * @param params.message - Not found message (default: "Resource not found")
- * @returns NextResponse with 404 status
- */
-export function createNotFoundResponse(params: { message?: string } = {}): NextResponse<ApiResponse<null>> {
-  const { message = 'Resource not found' } = params;
-  return createApiResponse(null, { status: 'Not Found', message }, 404);
-}
-
-/**
- * Creates a bad request API response
- * @param params - Response parameters
- * @param params.message - Bad request message (default: "Bad Request")
- * @returns NextResponse with 400 status
- */
-export function createBadRequestResponse(params: { message?: string } = {}): NextResponse<ApiResponse<null>> {
-  const { message = 'Bad Request' } = params;
-  return createApiResponse(null, { status: 'Bad Request', message }, 400);
-}
-
-/**
- * Creates an unauthorized API response
- * @param params - Response parameters
- * @param params.message - Unauthorized message (default: "Unauthorized")
- * @returns NextResponse with 401 status
- */
-export function createUnauthorizedResponse(params: { message?: string } = {}): NextResponse<ApiResponse<null>> {
-  const { message = 'Unauthorized' } = params;
-  return createApiResponse(null, { status: 'Unauthorized', message }, 401);
 }
