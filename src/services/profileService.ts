@@ -3,17 +3,10 @@ import { type Profile as DBProfile } from '@/db/schema';
 import { type PaginatedResponse } from '@/types/common';
 import { type ProfileType } from '@/types/profile';
 import { NotFoundError } from '@/lib/api/error';
+import { toProfileType } from '@/lib/utils/mappers';
 
 export class ProfileService {
   constructor(private readonly profileRepository: ProfileRepository) {}
-
-  private mapToProfileType(profile: DBProfile): ProfileType {
-    const { createdAt, updatedAt, ...rest } = profile;
-
-    return {
-      ...rest,
-    } as ProfileType;
-  }
 
   async getProfileBySlug(slug: string): Promise<ProfileType> {
     const profile: DBProfile | null = await this.profileRepository.findBySlug(slug);
@@ -22,7 +15,7 @@ export class ProfileService {
       throw new NotFoundError('Profile not found');
     }
 
-    return this.mapToProfileType(profile);
+    return toProfileType(profile);
   }
 
   async getProfiles(params: { page: number; limit: number }): Promise<PaginatedResponse<ProfileType>> {
@@ -35,12 +28,10 @@ export class ProfileService {
       this.profileRepository.count(),
     ]);
 
-    const safeProfiles = profiles.map((profile) => this.mapToProfileType(profile));
-
     const totalPages = Math.ceil(totalCount / limit);
 
     return {
-      data: safeProfiles,
+      data: profiles.map(toProfileType),
       pagination: {
         page,
         limit,
