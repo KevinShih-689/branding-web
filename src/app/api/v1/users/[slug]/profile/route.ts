@@ -6,7 +6,7 @@ import { ProfileType } from '@/types/profile';
 
 const profileService = new ProfileService(new ProfileRepository());
 
-export const GET = apiHandler<{ slug: string }>(async (req, context) => {
+export const GET = apiHandler<{ slug: string }>(async (_, context) => {
   const { slug } = await context.params;
 
   const profile: ProfileType = await profileService.getProfileBySlug(slug);
