@@ -1,12 +1,12 @@
 import { createSuccessResponse } from '@/lib/api/response';
 import { apiHandler } from '@/lib/api/apiHandler';
-import { ProfileType } from '@/types/profile';
+import { type TechToolType } from '@/types/techTools';
 import { container } from '@/lib/api/container';
 
 export const GET = apiHandler<{ slug: string }>(async (_, context) => {
   const { slug } = await context.params;
 
-  const profile: ProfileType = await container.profileService.getProfileBySlug(slug);
+  const techTools: TechToolType[] = await container.techToolsService.getTechToolsByProfileSlug(slug);
 
-  return createSuccessResponse<ProfileType>({ data: profile, message: 'Get profile success' });
+  return createSuccessResponse<TechToolType[]>({ data: techTools, message: 'Get tech tools success' });
 });
