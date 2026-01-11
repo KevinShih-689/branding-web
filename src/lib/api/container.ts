@@ -1,17 +1,20 @@
-import { ProfileRepository } from '@/repositories/profileRepository';
-import { SkillCategoriesRepository } from '@/repositories/skillCategoriesRepository';
-import { TechToolsRepository } from '@/repositories/techToolsRepository';
-import { ProfileService } from '@/services/profileService';
-import { SkillCategoriesService } from '@/services/skillCategoriesService';
-import { TechToolsService } from '@/services/techToolsService';
+import {
+  ProfileRepository,
+  SkillCategoriesRepository,
+  TechToolsRepository,
+  ExperiencesRepository,
+} from '@/repositories';
+import { ProfileService, SkillCategoriesService, TechToolsService, ExperiencesService } from '@/services';
 
 class Container {
   private _profileRepository?: ProfileRepository;
   private _skillCategoriesRepository?: SkillCategoriesRepository;
   private _techToolsRepository?: TechToolsRepository;
+  private _experiencesRepository?: ExperiencesRepository;
   private _profileService?: ProfileService;
   private _skillCategoriesService?: SkillCategoriesService;
   private _techToolsService?: TechToolsService;
+  private _experiencesService?: ExperiencesService;
 
   get profileRepository(): ProfileRepository {
     return (this._profileRepository ??= new ProfileRepository());
@@ -23,6 +26,10 @@ class Container {
 
   get techToolsRepository(): TechToolsRepository {
     return (this._techToolsRepository ??= new TechToolsRepository());
+  }
+
+  get experiencesRepository(): ExperiencesRepository {
+    return (this._experiencesRepository ??= new ExperiencesRepository());
   }
 
   get profileService(): ProfileService {
@@ -38,6 +45,10 @@ class Container {
 
   get techToolsService(): TechToolsService {
     return (this._techToolsService ??= new TechToolsService(this.techToolsRepository, this.skillCategoriesService));
+  }
+
+  get experiencesService(): ExperiencesService {
+    return (this._experiencesService ??= new ExperiencesService(this.experiencesRepository, this.profileService));
   }
 }
 

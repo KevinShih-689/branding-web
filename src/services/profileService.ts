@@ -1,7 +1,6 @@
-import { ProfileRepository } from '@/repositories/profileRepository';
+import { ProfileRepository } from '@/repositories';
 import { type Profile as DBProfile } from '@/db/schema';
-import { type PaginatedResponse } from '@/types/common';
-import { type ProfileType } from '@/types/profile';
+import { type PaginatedResponse, type ProfileType } from '@/types';
 import { NotFoundError } from '@/lib/api/error';
 import { toProfileType } from '@/lib/utils/mappers';
 

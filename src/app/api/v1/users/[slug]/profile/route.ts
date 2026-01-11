@@ -1,6 +1,6 @@
 import { createSuccessResponse } from '@/lib/api/response';
 import { apiHandler } from '@/lib/api/apiHandler';
-import { ProfileType } from '@/types/profile';
+import { type ProfileType } from '@/types';
 import { container } from '@/lib/api/container';
 
 export const GET = apiHandler<{ slug: string }>(async (_, context) => {

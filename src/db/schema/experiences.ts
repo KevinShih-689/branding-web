@@ -1,6 +1,7 @@
 import { index, pgTable, pgPolicy, text, timestamp, uuid, integer } from 'drizzle-orm/pg-core';
-import { sql, type InferSelectModel, type InferInsertModel } from 'drizzle-orm';
+import { sql, type InferSelectModel, type InferInsertModel, relations } from 'drizzle-orm';
 import { profiles } from './profiles';
+import { experienceDetails } from './experienceDetails';
 
 export const experiences = pgTable(
   'experiences',
@@ -39,6 +40,10 @@ export const experiences = pgTable(
     }),
   ],
 );
+
+export const experienceRelations = relations(experiences, ({ many }) => ({
+  details: many(experienceDetails),
+}));
 
 export type Experience = InferSelectModel<typeof experiences>;
 export type NewExperience = InferInsertModel<typeof experiences>;

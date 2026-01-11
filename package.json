@@ -13,8 +13,6 @@
     "lint": "eslint",
     "format": "prettier --write .",
     "prepare": "husky",
-    "db:push": "cross-env NODE_ENV=development drizzle-kit push",
-    "db:push:prod": "cross-env NODE_ENV=production drizzle-kit push",
     "db:generate": "cross-env NODE_ENV=development drizzle-kit generate",
     "db:generate:prod": "cross-env NODE_ENV=production drizzle-kit generate",
     "db:migrate": "cross-env NODE_ENV=development drizzle-kit migrate",

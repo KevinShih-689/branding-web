@@ -1,9 +1,8 @@
-import { TechToolsRepository } from '@/repositories/techToolsRepository';
+import { TechToolsRepository } from '@/repositories';
 import { SkillCategoriesService } from './skillCategoriesService';
 import { toTechToolType } from '@/lib/utils/mappers';
 import { type TechTool as DBTechTool } from '@/db/schema/techTools';
-import { type TechToolType } from '@/types/techTools';
-import { type SkillCategoryType } from '@/types/skillCategories';
+import { type TechToolType, type SkillCategoryType } from '@/types';
 
 export class TechToolsService {
   constructor(

@@ -1,5 +1,5 @@
 import { index, pgTable, pgPolicy, text, timestamp, uuid, integer, date } from 'drizzle-orm/pg-core';
-import { sql, type InferSelectModel, type InferInsertModel } from 'drizzle-orm';
+import { sql, type InferSelectModel, type InferInsertModel, relations } from 'drizzle-orm';
 import { experiences } from './experiences';
 
 export const experienceDetails = pgTable(
@@ -57,6 +57,13 @@ export const experienceDetails = pgTable(
     }),
   ],
 );
+
+export const experienceDetailRelations = relations(experienceDetails, ({ one }) => ({
+  experience: one(experiences, {
+    fields: [experienceDetails.experienceId],
+    references: [experiences.id],
+  }),
+}));
 
 export type ExperienceDetail = InferSelectModel<typeof experienceDetails>;
 export type NewExperienceDetail = InferInsertModel<typeof experienceDetails>;
