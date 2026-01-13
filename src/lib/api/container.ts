@@ -11,6 +11,7 @@ class Container {
   private _skillCategoriesRepository?: SkillCategoriesRepository;
   private _techToolsRepository?: TechToolsRepository;
   private _experiencesRepository?: ExperiencesRepository;
+
   private _profileService?: ProfileService;
   private _skillCategoriesService?: SkillCategoriesService;
   private _techToolsService?: TechToolsService;
