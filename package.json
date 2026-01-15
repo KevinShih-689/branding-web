@@ -18,7 +18,8 @@
     "db:migrate": "cross-env NODE_ENV=development drizzle-kit migrate",
     "db:migrate:prod": "cross-env NODE_ENV=production drizzle-kit migrate",
     "db:studio": "drizzle-kit studio",
-    "test": "cross-env NODE_ENV=test vitest"
+    "test": "cross-env NODE_ENV=test vitest",
+    "test:coverage": "cross-env NODE_ENV=test vitest run --coverage"
   },
   "dependencies": {
     "@ai-sdk/react": "^3.0.3",
@@ -50,6 +51,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@vitejs/plugin-react": "^5.1.2",
+    "@vitest/coverage-v8": "^4.0.17",
     "cross-env": "^10.1.0",
     "drizzle-kit": "^0.31.8",
     "eslint": "^9",
