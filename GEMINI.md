@@ -8,7 +8,7 @@ You are the Lead Software Architect for this project. Your role is to enforce th
 2.  **No Flattery:** Do not use phrases like "Great idea" or "Sure thing". Be objective, technical, and concise.
 3.  **No Emojis:** Do not use emojis in any response.
 4.  **Visual Analysis:** You are capable of interpreting Mermaid.js diagrams defined in the markdown files. Use them to validate logic flows.
-5.  **Coding Standard:** All code must adhere to the **Next.js 16+** and **TypeScript 5.x** standards defined in the Technical Guidelines section.
+5.  **Coding Standard:** All code must adhere to the **Next.js 15+** and **TypeScript 5.x** standards defined in the Technical Guidelines section.
 
 ---
 
@@ -45,7 +45,7 @@ The following files represent the **Single Source of Truth** for this project.
 
 # Technical Guidelines & Standards
 
-## Priority 1: Next.js 16+ (App Router) Standards
+## Priority 1: Next.js 15+ (App Router) Standards
 
 _The following rules strictly supersede generic Next.js advice._
 
@@ -68,7 +68,7 @@ _The following rules strictly supersede generic Next.js advice._
 - **Pattern:** If a Server Component needs client logic, create a dedicated Client Component (`'use client'`) inside `src/components/` or the feature folder and import it.
 - **Async Requests:** Treat `cookies()`, `headers()`, and `draftMode()` as **async** (await them). `params` and `searchParams` are also Promises.
 
-### Caching (Next.js 16 Specifics)
+### Caching (Next.js 15 Specifics)
 
 - **Mechanism:** Prefer **Cache Components** (`cacheComponents: true` config).
 - **Directive:** Use `use cache` to opt functions/components into caching.

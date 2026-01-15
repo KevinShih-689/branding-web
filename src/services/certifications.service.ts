@@ -1,5 +1,5 @@
 import { CertificationsRepository } from '@/repositories';
-import { ProfileService } from './profileService';
+import { ProfileService } from './profile.service';
 import { toCertificationType } from '@/lib/utils/mappers';
 import { type Certification as DBCertification } from '@/db/schema/certifications';
 import { type CertificationType } from '@/types';
