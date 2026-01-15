@@ -1,24 +1,19 @@
 import { TechToolsRepository } from '@/repositories';
-import { SkillCategoriesService } from './skillCategoriesService';
+import { ProfileService } from './profileService';
 import { toTechToolType } from '@/lib/utils/mappers';
 import { type TechTool as DBTechTool } from '@/db/schema/techTools';
-import { type TechToolType, type SkillCategoryType } from '@/types';
+import { type TechToolType } from '@/types';
 
 export class TechToolsService {
   constructor(
     private readonly techToolsRepository: TechToolsRepository,
-    private readonly skillCategoriesService: SkillCategoriesService,
+    private readonly profileService: ProfileService,
   ) {}
 
   async getTechToolsByProfileSlug(slug: string): Promise<TechToolType[]> {
-    const skillCategories: SkillCategoryType[] =
-      await this.skillCategoriesService.getSkillCategoriesByProfileSlug(slug);
+    await this.profileService.getProfileBySlug(slug);
 
-    if (skillCategories.length === 0) return [];
-
-    const techTools: DBTechTool[] = await this.techToolsRepository.findByCategoryIds(
-      skillCategories.map((skillCategory) => skillCategory.id),
-    );
+    const techTools: DBTechTool[] = await this.techToolsRepository.findByProfileSlug(slug);
 
     return techTools.map(toTechToolType);
   }

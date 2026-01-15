@@ -1,12 +1,14 @@
 import { type SkillCategory as DBSkillCategory } from '@/db/schema/skillCategories';
 import { type Profile as DBProfile } from '@/db/schema/profiles';
 import { type TechTool as DBTechTool } from '@/db/schema/techTools';
+import { type Certification as DBCertification } from '@/db/schema/certifications';
 import {
   type SkillCategoryType,
   type ProfileType,
   type TechToolType,
   type ExperienceType,
   type ExperienceDetailType,
+  type CertificationType,
 } from '@/types';
 import { type Experience as DBExperience, type ExperienceDetail as DBExperienceDetail } from '@/db/schema';
 
@@ -39,4 +41,8 @@ export function toExperienceType(experience: DBExperience & { details: DBExperie
 
 export function toExperienceDetailType(detail: DBExperienceDetail): ExperienceDetailType {
   return omitKeys(detail, ['deletedAt']);
+}
+
+export function toCertificationType(certification: DBCertification): CertificationType {
+  return omitKeys(certification, ['categoryId', 'deletedAt']);
 }
