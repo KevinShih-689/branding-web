@@ -2,7 +2,5 @@
   "css.lint.unknownAtRules": "ignore",
   "scss.lint.unknownAtRules": "ignore",
   "cSpell.words": ["hnsw", "ollama", "SUPABASE", "turbopack"],
-  "vitest.enable": true,
-  "vitest.commandLine": "npx vitest",
   "vitest.nodeExecutable": "/Users/shih/.nvm/versions/node/v20.11.0/bin/node"
 }
