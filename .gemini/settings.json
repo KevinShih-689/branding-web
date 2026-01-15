@@ -1,0 +1,13 @@
+{
+  "context": {
+    "fileName": ["GEMINI.md"],
+    "fileFiltering": {
+      "respectGitIgnore": false
+    }
+  },
+  "mcpServers": {
+    "supabase": {
+      "url": "https://mcp.supabase.com/mcp"
+    }
+  }
+}
