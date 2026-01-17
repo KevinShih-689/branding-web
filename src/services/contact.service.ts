@@ -10,13 +10,15 @@ export class ContactService {
   ) {}
 
   async createContact(slug: string, payload: ContactSubmissionPayloadType): Promise<ContactSubmissionResponseType> {
+    const { sender_name, sender_email, message } = payload;
+
     const profile = await this.profileService.getProfileBySlug(slug);
 
     const newContact: NewContactSubmission = {
       profileId: profile.id,
-      senderName: payload.sender_name,
-      senderEmail: payload.sender_email,
-      message: payload.message,
+      senderName: sender_name,
+      senderEmail: sender_email,
+      message: message,
     };
 
     const savedContact = await this.contactRepository.create(newContact);
