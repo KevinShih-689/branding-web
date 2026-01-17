@@ -9,7 +9,7 @@ import {
   type ExperienceType,
   type ExperienceDetailType,
   type CertificationType,
-} from '@/types';
+} from '@/lib/dtos';
 import { type Experience as DBExperience, type ExperienceDetail as DBExperienceDetail } from '@/db/schema';
 
 function omitKeys<T, K extends keyof T>(obj: T, keys: K[]): Omit<T, K> {

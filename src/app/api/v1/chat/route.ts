@@ -1,14 +1,11 @@
-import { NextResponse } from 'next/server';
+import { NextResponse, NextRequest } from 'next/server';
 import { streamText, convertToModelMessages, type UIMessage } from 'ai';
 import ollama from '@/lib/ollama/ollama';
+import { parseJson } from '@/lib/api';
 
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
   try {
-    const {
-      messages,
-    }: {
-      messages: UIMessage[];
-    } = await req.json();
+    const { messages } = await parseJson<{ messages: UIMessage[] }>(req);
 
     const contextBlock = MOCK_CHUNKS.map((chunk) => chunk).join('\n---\n');
 

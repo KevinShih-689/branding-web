@@ -1,10 +1,9 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { NextRequest } from 'next/server';
 import { mockDeep, type DeepMockProxy } from 'vitest-mock-extended';
-import { container } from '@/lib/api/container';
-import { NotFoundError, InternalServerError } from '@/lib/api/error';
+import { container, NotFoundError, InternalServerError } from '@/lib/api';
 import { CertificationsService } from '@/services';
-import { type CertificationType } from '@/types';
+import { type CertificationType } from '@/lib/dtos';
 import { GET } from './route';
 
 describe('API: GET /api/v1/users/[slug]/certifications', () => {

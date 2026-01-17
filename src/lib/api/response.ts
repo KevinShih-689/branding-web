@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import type { ApiResponse } from '@/types';
+import type { ApiResponse } from '@/lib/dtos';
 
 /**
  * Creates a standardized API response with metadata and data

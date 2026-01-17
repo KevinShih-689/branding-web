@@ -2,7 +2,7 @@ import { ExperiencesRepository } from '@/repositories';
 import { ProfileService } from '@/services';
 import { toExperienceType } from '@/lib/utils/mappers';
 import { type Experience as DBExperience, type ExperienceDetail as DBExperienceDetail } from '@/db/schema';
-import { type ExperienceType, type ProfileType } from '@/types';
+import { type ExperienceType, type ProfileType } from '@/lib/dtos';
 
 export class ExperiencesService {
   constructor(

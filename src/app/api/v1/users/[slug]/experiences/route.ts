@@ -1,7 +1,5 @@
-import { apiHandler } from '@/lib/api/apiHandler';
-import { container } from '@/lib/api/container';
-import { createSuccessResponse } from '@/lib/api/response';
-import { type ExperienceType } from '@/types';
+import { apiHandler, container, createSuccessResponse } from '@/lib/api';
+import { type ExperienceType } from '@/lib/dtos';
 
 export const GET = apiHandler<{ slug: string }>(async (_, context) => {
   const { slug } = await context.params;

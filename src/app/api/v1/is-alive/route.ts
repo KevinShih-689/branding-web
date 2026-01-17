@@ -1,6 +1,6 @@
 import { db } from '@/db';
 import { sql } from 'drizzle-orm';
-import { createSuccessResponse, createErrorResponse } from '@/lib/api/response';
+import { createSuccessResponse, createErrorResponse } from '@/lib/api';
 
 export async function GET() {
   try {

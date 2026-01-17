@@ -2,7 +2,7 @@ import { TechToolsRepository } from '@/repositories';
 import { ProfileService } from './profile.service';
 import { toTechToolType } from '@/lib/utils/mappers';
 import { type TechTool as DBTechTool } from '@/db/schema/techTools';
-import { type TechToolType } from '@/types';
+import { type TechToolType } from '@/lib/dtos';
 
 export class TechToolsService {
   constructor(

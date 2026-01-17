@@ -1,7 +1,7 @@
 import { ProfileRepository } from '@/repositories';
 import { type Profile as DBProfile } from '@/db/schema';
-import { type PaginatedResponse, type ProfileType } from '@/types';
-import { NotFoundError } from '@/lib/api/error';
+import { type PaginatedResponse, type ProfileType } from '@/lib/dtos';
+import { NotFoundError } from '@/lib/api';
 import { toProfileType } from '@/lib/utils/mappers';
 
 export class ProfileService {

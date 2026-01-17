@@ -2,7 +2,7 @@ import { SkillCategoriesRepository } from '@/repositories';
 import { ProfileService } from '@/services';
 import { toSkillCategoryType } from '@/lib/utils/mappers';
 import { type SkillCategory as DBSkillCategory } from '@/db/schema/skillCategories';
-import { type SkillCategoryType, type ProfileType } from '@/types';
+import { type SkillCategoryType, type ProfileType } from '@/lib/dtos';
 
 export class SkillCategoriesService {
   constructor(

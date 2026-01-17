@@ -4,6 +4,7 @@ import {
   TechToolsRepository,
   ExperiencesRepository,
   CertificationsRepository,
+  ContactRepository,
 } from '@/repositories';
 import {
   ProfileService,
@@ -11,6 +12,7 @@ import {
   TechToolsService,
   ExperiencesService,
   CertificationsService,
+  ContactService,
 } from '@/services';
 
 class Container {
@@ -19,12 +21,14 @@ class Container {
   private _techToolsRepository?: TechToolsRepository;
   private _experiencesRepository?: ExperiencesRepository;
   private _certificationsRepository?: CertificationsRepository;
+  private _contactRepository?: ContactRepository;
 
   private _profileService?: ProfileService;
   private _skillCategoriesService?: SkillCategoriesService;
   private _techToolsService?: TechToolsService;
   private _experiencesService?: ExperiencesService;
   private _certificationsService?: CertificationsService;
+  private _contactService?: ContactService;
 
   get profileRepository(): ProfileRepository {
     return (this._profileRepository ??= new ProfileRepository());
@@ -44,6 +48,10 @@ class Container {
 
   get certificationsRepository(): CertificationsRepository {
     return (this._certificationsRepository ??= new CertificationsRepository());
+  }
+
+  get contactRepository(): ContactRepository {
+    return (this._contactRepository ??= new ContactRepository());
   }
 
   get profileService(): ProfileService {
@@ -70,6 +78,10 @@ class Container {
       this.certificationsRepository,
       this.profileService,
     ));
+  }
+
+  get contactService(): ContactService {
+    return (this._contactService ??= new ContactService(this.contactRepository, this.profileService));
   }
 }
 

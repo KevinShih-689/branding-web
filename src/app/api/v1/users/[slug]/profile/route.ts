@@ -1,7 +1,5 @@
-import { createSuccessResponse } from '@/lib/api/response';
-import { apiHandler } from '@/lib/api/apiHandler';
-import { type ProfileType } from '@/types';
-import { container } from '@/lib/api/container';
+import { createSuccessResponse, apiHandler, container } from '@/lib/api';
+import { type ProfileType } from '@/lib/dtos';
 
 export const GET = apiHandler<{ slug: string }>(async (_, context) => {
   const { slug } = await context.params;

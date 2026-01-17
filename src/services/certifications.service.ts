@@ -2,7 +2,7 @@ import { CertificationsRepository } from '@/repositories';
 import { ProfileService } from './profile.service';
 import { toCertificationType } from '@/lib/utils/mappers';
 import { type Certification as DBCertification } from '@/db/schema/certifications';
-import { type CertificationType } from '@/types';
+import { type CertificationType } from '@/lib/dtos';
 
 export class CertificationsService {
   constructor(

@@ -1,7 +1,5 @@
-import { createSuccessResponse } from '@/lib/api/response';
-import { apiHandler } from '@/lib/api/apiHandler';
-import { container } from '@/lib/api/container';
-import { type CertificationType } from '@/types';
+import { createSuccessResponse, apiHandler, container } from '@/lib/api';
+import { type CertificationType } from '@/lib/dtos';
 
 export const GET = apiHandler<{ slug: string }>(async (_, context) => {
   const { slug } = await context.params;
