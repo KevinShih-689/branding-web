@@ -6,11 +6,11 @@ export const ContactSubmissionPayloadSchema = z.object({
   message: z.string({ message: 'Message is required' }).min(1, 'Message can not be empty'),
 });
 
-export type ContactSubmissionPayload = z.infer<typeof ContactSubmissionPayloadSchema>;
+export type ContactSubmissionPayloadType = z.infer<typeof ContactSubmissionPayloadSchema>;
 
 export const ContactSubmissionResponseSchema = z.object({
   id: z.uuid(),
   created_at: z.string(),
 });
 
-export type ContactSubmissionResponse = z.infer<typeof ContactSubmissionResponseSchema>;
+export type ContactSubmissionResponseType = z.infer<typeof ContactSubmissionResponseSchema>;

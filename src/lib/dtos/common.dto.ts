@@ -13,7 +13,7 @@ export const PaginatedResponseSchema = <T extends z.ZodTypeAny>(itemSchema: T) =
     pagination: PaginationSchema,
   });
 
-export type PaginatedResponse<T> = {
+export type PaginatedResponseType<T> = {
   data: T[];
   pagination: z.infer<typeof PaginationSchema>;
 };
@@ -23,7 +23,7 @@ export const ApiResponseMetadataSchema = z.object({
   message: z.string(),
 });
 
-export type ApiResponseMetadata = z.infer<typeof ApiResponseMetadataSchema>;
+export type ApiResponseMetadataType = z.infer<typeof ApiResponseMetadataSchema>;
 
 export const ApiResponseSchema = <T extends z.ZodTypeAny>(dataSchema: T) =>
   z.object({
@@ -32,6 +32,6 @@ export const ApiResponseSchema = <T extends z.ZodTypeAny>(dataSchema: T) =>
   });
 
 export type ApiResponse<T = unknown> = {
-  metadata: ApiResponseMetadata;
+  metadata: ApiResponseMetadataType;
   data: T | null;
 };

@@ -1,6 +1,6 @@
 import { ProfileRepository } from '@/repositories';
 import { type Profile as DBProfile } from '@/db/schema';
-import { type PaginatedResponse, type ProfileType } from '@/lib/dtos';
+import { type PaginatedResponseType, type ProfileType } from '@/lib/dtos';
 import { NotFoundError } from '@/lib/api';
 import { toProfileType } from '@/lib/utils/mappers';
 
@@ -17,7 +17,7 @@ export class ProfileService {
     return toProfileType(profile);
   }
 
-  async getProfiles(params: { page: number; limit: number }): Promise<PaginatedResponse<ProfileType>> {
+  async getProfiles(params: { page: number; limit: number }): Promise<PaginatedResponseType<ProfileType>> {
     const { page, limit } = params;
 
     const offset = (page - 1) * limit;

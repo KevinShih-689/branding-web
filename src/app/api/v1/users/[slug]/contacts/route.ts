@@ -1,5 +1,5 @@
 import { createSuccessResponse, apiHandler, container, BadRequestError, parseJson } from '@/lib/api';
-import { type ContactSubmissionResponse, ContactSubmissionPayloadSchema } from '@/lib/dtos';
+import { type ContactSubmissionResponseType, ContactSubmissionPayloadSchema } from '@/lib/dtos';
 
 export const POST = apiHandler<{ slug: string }>(async (req, context) => {
   const { slug } = await context.params;
@@ -17,7 +17,7 @@ export const POST = apiHandler<{ slug: string }>(async (req, context) => {
 
   const result = await container.contactService.createContact(slug, body);
 
-  return createSuccessResponse<ContactSubmissionResponse>({
+  return createSuccessResponse<ContactSubmissionResponseType>({
     data: result,
     message: 'Message sent successfully',
     httpStatus: 201,

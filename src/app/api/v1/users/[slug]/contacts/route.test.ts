@@ -3,7 +3,7 @@ import { mockDeep, type DeepMockProxy } from 'vitest-mock-extended';
 import { NextRequest } from 'next/server';
 import { container, NotFoundError } from '@/lib/api';
 import { ContactService } from '@/services';
-import { type ContactSubmissionResponse } from '@/lib/dtos';
+import { type ContactSubmissionResponseType } from '@/lib/dtos';
 import { POST } from './route';
 
 describe('API: POST /api/v1/users/[slug]/contacts', () => {
@@ -32,7 +32,7 @@ describe('API: POST /api/v1/users/[slug]/contacts', () => {
       sender_email: 'john@example.com',
       message: 'Hi',
     };
-    const mockResponse: ContactSubmissionResponse = {
+    const mockResponse: ContactSubmissionResponseType = {
       id: '501',
       created_at: '2025-01-01T00:00:00.000Z',
     };

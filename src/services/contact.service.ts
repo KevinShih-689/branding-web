@@ -1,7 +1,7 @@
 import { ContactRepository } from '@/repositories';
 import { ProfileService } from '@/services';
 import { type NewContactSubmission } from '@/db/schema/contactSubmissions';
-import { type ContactSubmissionPayload, type ContactSubmissionResponse } from '@/lib/dtos';
+import { type ContactSubmissionPayloadType, type ContactSubmissionResponseType } from '@/lib/dtos';
 
 export class ContactService {
   constructor(
@@ -9,7 +9,7 @@ export class ContactService {
     private readonly profileService: ProfileService,
   ) {}
 
-  async createContact(slug: string, payload: ContactSubmissionPayload): Promise<ContactSubmissionResponse> {
+  async createContact(slug: string, payload: ContactSubmissionPayloadType): Promise<ContactSubmissionResponseType> {
     const profile = await this.profileService.getProfileBySlug(slug);
 
     const newContact: NewContactSubmission = {
