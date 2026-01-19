@@ -5,6 +5,8 @@ import {
   ExperiencesRepository,
   CertificationsRepository,
   ContactRepository,
+  DocumentsRepository,
+  AuthRepository,
 } from '@/repositories';
 import {
   ProfileService,
@@ -13,6 +15,8 @@ import {
   ExperiencesService,
   CertificationsService,
   ContactService,
+  DocumentsService,
+  LoginService,
 } from '@/services';
 
 class Container {
@@ -22,6 +26,8 @@ class Container {
   private _experiencesRepository?: ExperiencesRepository;
   private _certificationsRepository?: CertificationsRepository;
   private _contactRepository?: ContactRepository;
+  private _documentsRepository?: DocumentsRepository;
+  private _authRepository?: AuthRepository;
 
   private _profileService?: ProfileService;
   private _skillCategoriesService?: SkillCategoriesService;
@@ -29,6 +35,8 @@ class Container {
   private _experiencesService?: ExperiencesService;
   private _certificationsService?: CertificationsService;
   private _contactService?: ContactService;
+  private _documentsService?: DocumentsService;
+  private _loginService?: LoginService;
 
   get profileRepository(): ProfileRepository {
     return (this._profileRepository ??= new ProfileRepository());
@@ -52,6 +60,14 @@ class Container {
 
   get contactRepository(): ContactRepository {
     return (this._contactRepository ??= new ContactRepository());
+  }
+
+  get documentsRepository(): DocumentsRepository {
+    return (this._documentsRepository ??= new DocumentsRepository());
+  }
+
+  get authRepository(): AuthRepository {
+    return (this._authRepository ??= new AuthRepository());
   }
 
   get profileService(): ProfileService {
@@ -82,6 +98,14 @@ class Container {
 
   get contactService(): ContactService {
     return (this._contactService ??= new ContactService(this.contactRepository, this.profileService));
+  }
+
+  get documentsService(): DocumentsService {
+    return (this._documentsService ??= new DocumentsService(this.documentsRepository, this.profileService));
+  }
+
+  get loginService(): LoginService {
+    return (this._loginService ??= new LoginService(this.profileRepository, this.authRepository));
   }
 }
 

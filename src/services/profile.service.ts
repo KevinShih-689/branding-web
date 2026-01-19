@@ -7,6 +7,16 @@ import { toProfileType } from '@/lib/utils/mappers';
 export class ProfileService {
   constructor(private readonly profileRepository: ProfileRepository) {}
 
+  async getProfileById(id: string): Promise<ProfileType> {
+    const profile: DBProfile | null = await this.profileRepository.findById(id);
+
+    if (!profile) {
+      throw new NotFoundError('Profile not found');
+    }
+
+    return toProfileType(profile);
+  }
+
   async getProfileBySlug(slug: string): Promise<ProfileType> {
     const profile: DBProfile | null = await this.profileRepository.findBySlug(slug);
 

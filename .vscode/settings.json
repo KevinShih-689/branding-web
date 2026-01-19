@@ -1,6 +1,6 @@
 {
   "css.lint.unknownAtRules": "ignore",
   "scss.lint.unknownAtRules": "ignore",
-  "cSpell.words": ["dtos", "hnsw", "ollama", "SUPABASE", "turbopack"],
+  "cSpell.words": ["dtos", "hnsw", "langchain", "nomic", "ollama", "SUPABASE", "textsplitters", "turbopack"],
   "vitest.nodeExecutable": "/Users/shih/.nvm/versions/node/v20.11.0/bin/node"
 }

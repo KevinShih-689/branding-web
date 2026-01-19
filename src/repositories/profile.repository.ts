@@ -3,6 +3,12 @@ import { profiles, type Profile as DBProfile } from '@/db/schema';
 import { eq, desc, count } from 'drizzle-orm';
 
 export class ProfileRepository {
+  async findById(id: string): Promise<DBProfile | null> {
+    const result = await db.select().from(profiles).where(eq(profiles.id, id)).limit(1);
+
+    return result[0] ?? null;
+  }
+
   async findBySlug(slug: string): Promise<DBProfile | null> {
     const result = await db.select().from(profiles).where(eq(profiles.slug, slug)).limit(1);
 

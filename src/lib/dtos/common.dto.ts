@@ -21,6 +21,7 @@ export type PaginatedResponseType<T> = {
 export const ApiResponseMetadataSchema = z.object({
   status: z.string(),
   message: z.string(),
+  code: z.string().optional(),
 });
 
 export type ApiResponseMetadataType = z.infer<typeof ApiResponseMetadataSchema>;

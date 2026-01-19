@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server';
 import { z } from 'zod';
-import { BadRequestError } from './error';
+import { BadRequestError, AuthenticationError } from './error';
 
 export async function validateRequest<T>(req: NextRequest, schema: z.ZodSchema<T>): Promise<T> {
   let reqData;
@@ -18,4 +18,12 @@ export async function validateRequest<T>(req: NextRequest, schema: z.ZodSchema<T
   }
 
   return result.data;
+}
+
+export function getAuthenticatedUserId(req: NextRequest): string {
+  const userId = req.headers.get('x-user-id');
+  if (!userId) {
+    throw new AuthenticationError('Unauthorized: User ID missing');
+  }
+  return userId;
 }

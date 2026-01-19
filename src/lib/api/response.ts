@@ -10,7 +10,7 @@ import type { ApiResponse } from '@/lib/dtos';
  */
 export function createApiResponse<T = unknown>(
   data: T | null,
-  metadata: { status: string; message: string },
+  metadata: { status: string; message: string; code?: string },
   httpStatus: number = 200,
 ): NextResponse<ApiResponse<T>> {
   const response: ApiResponse<T> = {
@@ -55,4 +55,22 @@ export function createErrorResponse(params: {
 }): NextResponse<ApiResponse<null>> {
   const { message, status = 'Error', httpStatus = 500 } = params;
   return createApiResponse(null, { status, message }, httpStatus);
+}
+
+/**
+ * Creates an unauthorized API response
+ * @param message - Error message (default: "Unauthorized")
+ * @param code - Error code for frontend handling (optional)
+ * @returns NextResponse with 401 status
+ */
+export function createUnauthorizedResponse(
+  message: string = 'Unauthorized',
+  code?: string,
+): NextResponse<ApiResponse<null>> {
+  const metadata = {
+    status: 'Unauthorized',
+    message,
+    ...(code && { code }),
+  };
+  return createApiResponse(null, metadata, 401);
 }
