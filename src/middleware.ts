@@ -21,8 +21,6 @@ export async function middleware(req: NextRequest) {
       algorithms: ['HS256'],
     });
 
-    console.log('🚀 ~ middleware ~ payload:', payload);
-
     if (payload.aud !== 'authenticated') {
       return createUnauthorizedResponse('Unauthorized: Invalid token type', 'TOKEN_INVALID');
     }

@@ -14,7 +14,7 @@ export class LoginService {
     const profile = await this.profileRepository.findBySlug(slug);
 
     if (!profile || !profile.email) {
-      throw new AuthenticationError('Invalid slug or email');
+      throw new AuthenticationError('Invalid credentials');
     }
 
     const authResponse = await this.authRepository.signInWithPassword(profile.email, password);
@@ -25,7 +25,7 @@ export class LoginService {
     } = authResponse;
 
     if (error || !session) {
-      throw new AuthenticationError(error?.message ?? 'Invalid credentials');
+      throw new AuthenticationError('Invalid credentials');
     }
 
     return {
