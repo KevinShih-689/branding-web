@@ -1,6 +1,6 @@
-import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
 import * as jose from 'jose';
+import { NextResponse, type NextRequest } from 'next/server';
+import { verifyAccessToken } from '@/lib/api/request';
 import { createUnauthorizedResponse, createErrorResponse } from '@/lib/api/response';
 
 export const config = {
@@ -15,11 +15,7 @@ export async function middleware(req: NextRequest) {
       return createUnauthorizedResponse('Unauthorized: No token provided', 'TOKEN_MISSING');
     }
 
-    const secret = new TextEncoder().encode(process.env.JWT_SECRET);
-
-    const { payload } = await jose.jwtVerify(token, secret, {
-      algorithms: ['HS256'],
-    });
+    const payload = await verifyAccessToken(token);
 
     if (payload.aud !== 'authenticated') {
       return createUnauthorizedResponse('Unauthorized: Invalid token type', 'TOKEN_INVALID');

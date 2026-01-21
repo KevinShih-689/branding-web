@@ -107,8 +107,6 @@ This is a personal branding and portfolio web application built with Next.js, le
 
     NEXT_PUBLIC_SUPABASE_URL=https://$SUPABASE_PROJECT_REF.supabase.co
     NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY=
-
-    JWT_SECRET=
     ```
 
 ### Installation

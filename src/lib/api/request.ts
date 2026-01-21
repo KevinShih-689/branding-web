@@ -1,6 +1,9 @@
 import { NextRequest } from 'next/server';
+import { type JWTPayload, jwtVerify, createRemoteJWKSet } from 'jose';
 import { z } from 'zod';
 import { BadRequestError, AuthenticationError } from './error';
+
+const JWKS = createRemoteJWKSet(new URL(`${process.env.NEXT_PUBLIC_SUPABASE_URL}/auth/v1/.well-known/jwks.json`));
 
 export async function validateRequest<T>(req: NextRequest, schema: z.ZodSchema<T>): Promise<T> {
   let reqData;
@@ -26,4 +29,10 @@ export function getAuthenticatedUserId(req: NextRequest): string {
     throw new AuthenticationError('Unauthorized: User ID missing');
   }
   return userId;
+}
+
+export async function verifyAccessToken(token: string): Promise<JWTPayload> {
+  const { payload } = await jwtVerify(token, JWKS);
+
+  return payload;
 }
