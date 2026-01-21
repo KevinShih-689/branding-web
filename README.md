@@ -15,21 +15,26 @@ _Built with the tools and technologies:_
 
 <br />
 
-<img src="https://img.shields.io/badge/JSON-000000?style=flat-square&logo=json&logoColor=white" alt="JSON" />
-<img src="https://img.shields.io/badge/Markdown-000000?style=flat-square&logo=markdown&logoColor=white" alt="Markdown" />
+<img src="https://img.shields.io/badge/nextjs-000000?style=flat-square&logo=nextdotjs&logoColor=white" alt="nextjs" />
+<img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript" />
 <img src="https://img.shields.io/badge/npm-CB3837?style=flat-square&logo=npm&logoColor=white" alt="npm" />
-<img src="https://img.shields.io/badge/Prettier-F7B93E?style=flat-square&logo=prettier&logoColor=black" alt="Prettier" />
-<img src="https://img.shields.io/badge/.ENV-ECD53F?style=flat-square&logo=.env&logoColor=black" alt=".ENV" />
-<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" alt="JavaScript" />
+<img src="https://img.shields.io/badge/tailwind-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white" alt="tailwind" />
+<img src="https://img.shields.io/badge/Sass-CC6699?style=flat-square&logo=sass&logoColor=white" alt="Sass" />
+
+<br />
+
+<img src="https://img.shields.io/badge/supabase-3FCF8E?style=flat-square&logo=supabase&logoColor=white" alt="supabase" />
+<img src="https://img.shields.io/badge/postgresql-4169E1?style=flat-square&logo=postgresql&logoColor=white" alt="postgresql" />
+<img src="https://img.shields.io/badge/drizzle-C5F74F?style=flat-square&logo=drizzle&logoColor=white" alt="drizzle" />
+<img src="https://img.shields.io/badge/ollama-000000?style=flat-square&logo=ollama&logoColor=white" alt="ollama" />
 
 <br />
 
 <img src="https://img.shields.io/badge/Vitest-6E9F18?style=flat-square&logo=vitest&logoColor=white" alt="Vitest" />
-<img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black" alt="React" />
-<img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript" />
+<img src="https://img.shields.io/badge/testinglibrary-E33332?style=flat-square&logo=testinglibrary&logoColor=white" alt="testinglibrary" />
 <img src="https://img.shields.io/badge/Zod-3E67B1?style=flat-square&logo=zod&logoColor=white" alt="Zod" />
 <img src="https://img.shields.io/badge/ESLint-4B32C3?style=flat-square&logo=eslint&logoColor=white" alt="ESLint" />
-<img src="https://img.shields.io/badge/Sass-CC6699?style=flat-square&logo=sass&logoColor=white" alt="Sass" />
+<img src="https://img.shields.io/badge/Prettier-F7B93E?style=flat-square&logo=prettier&logoColor=black" alt="Prettier" />
 
 </div>
 <br />
