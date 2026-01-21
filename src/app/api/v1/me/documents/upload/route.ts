@@ -1,51 +1,48 @@
 import { NextRequest } from 'next/server';
-import { getAuthenticatedUserId, createSuccessResponse, createErrorResponse, ApiError } from '@/lib/api';
+import {
+  getAuthenticatedUserId,
+  createSuccessResponse,
+  createErrorResponse,
+  ApiError,
+  validateRequest,
+} from '@/lib/api';
 import { container } from '@/lib/api/container';
+import { UploadDocumentPayloadSchema } from '@/lib/dtos';
 
 export async function POST(req: NextRequest) {
   try {
     const userId = getAuthenticatedUserId(req);
-    const documentsService = container.documentsService;
 
     const formData = await req.formData();
     const file = formData.get('file') as File | null;
 
-    if (!file) {
+    const validationResult = UploadDocumentPayloadSchema.safeParse({ file });
+
+    if (!validationResult.success) {
+      const errorMessage = validationResult.error.issues.map((i) => `${i.path.join('.')}: ${i.message}`).join(', ');
       return createErrorResponse({
-        message: 'No file uploaded',
+        message: errorMessage,
         status: 'Bad Request',
         httpStatus: 400,
       });
     }
 
-    if (file.type !== 'application/pdf') {
-      return createErrorResponse({
-        message: 'Only PDF files are allowed',
-        status: 'Bad Request',
-        httpStatus: 400,
-      });
-    }
+    const validFile = validationResult.data.file;
 
-    if (file.size > 10 * 1024 * 1024) {
-      return createErrorResponse({
-        message: 'File size exceeds 10MB limit',
-        status: 'Bad Request',
-        httpStatus: 400,
-      });
-    }
+    console.log('🚀 ~ POST ~ uploadedFile:', validFile);
 
-    const arrayBuffer = await file.arrayBuffer();
+    const arrayBuffer = await validFile.arrayBuffer();
     const buffer = Buffer.from(arrayBuffer);
 
-    const result = await documentsService.processAndSaveDocument(userId, buffer, file.name);
+    const result = await container.documentsService.processAndSaveDocument(userId, buffer, validFile.name);
 
     return createSuccessResponse({
       data: {
         id: result[0]?.id,
-        filename: file.name,
+        filename: validFile.name,
         file_url: null,
-        mime_type: file.type,
-        size_bytes: file.size,
+        mime_type: validFile.type,
+        size_bytes: validFile.size,
         chunk_count: result.length,
         created_at: new Date().toISOString(),
       },
