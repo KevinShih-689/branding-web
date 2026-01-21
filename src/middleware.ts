@@ -30,11 +30,13 @@ export async function middleware(req: NextRequest) {
       },
     });
   } catch (error) {
-    if (error instanceof jose.errors.JWTExpired) {
+    const { JWTExpired, JWTInvalid, JWSInvalid } = jose.errors;
+
+    if (error instanceof JWTExpired) {
       return createUnauthorizedResponse('Unauthorized: Token expired', 'TOKEN_EXPIRED');
     }
 
-    if (error instanceof jose.errors.JWSInvalid || error instanceof jose.errors.JWTInvalid) {
+    if (error instanceof JWSInvalid || error instanceof JWTInvalid) {
       const ip = req.headers.get('x-forwarded-for') || 'unknown';
       console.warn('Security Warning: Invalid Token received from IP:', ip);
       return createUnauthorizedResponse('Unauthorized: Invalid token', 'TOKEN_INVALID');
