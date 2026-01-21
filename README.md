@@ -1,4 +1,40 @@
-# Branding Web
+<div align="center">
+
+# BRANDING-WEB
+
+<br />
+
+<img src="https://img.shields.io/github/last-commit/KevinShih-689/branding-web?style=flat-square&color=2E86C1" alt="last commit" />
+<img src="https://img.shields.io/github/languages/top/KevinShih-689/branding-web?style=flat-square&color=2E86C1" alt="top language" />
+<img src="https://img.shields.io/github/languages/count/KevinShih-689/branding-web?style=flat-square&color=2E86C1" alt="languages count" />
+
+<br />
+<br />
+
+_Built with the tools and technologies:_
+
+<br />
+
+<img src="https://img.shields.io/badge/JSON-000000?style=flat-square&logo=json&logoColor=white" alt="JSON" />
+<img src="https://img.shields.io/badge/Markdown-000000?style=flat-square&logo=markdown&logoColor=white" alt="Markdown" />
+<img src="https://img.shields.io/badge/npm-CB3837?style=flat-square&logo=npm&logoColor=white" alt="npm" />
+<img src="https://img.shields.io/badge/Prettier-F7B93E?style=flat-square&logo=prettier&logoColor=black" alt="Prettier" />
+<img src="https://img.shields.io/badge/.ENV-ECD53F?style=flat-square&logo=.env&logoColor=black" alt=".ENV" />
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" alt="JavaScript" />
+
+<br />
+
+<img src="https://img.shields.io/badge/Vitest-6E9F18?style=flat-square&logo=vitest&logoColor=white" alt="Vitest" />
+<img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black" alt="React" />
+<img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript" />
+<img src="https://img.shields.io/badge/Zod-3E67B1?style=flat-square&logo=zod&logoColor=white" alt="Zod" />
+<img src="https://img.shields.io/badge/ESLint-4B32C3?style=flat-square&logo=eslint&logoColor=white" alt="ESLint" />
+<img src="https://img.shields.io/badge/Sass-CC6699?style=flat-square&logo=sass&logoColor=white" alt="Sass" />
+
+</div>
+<br />
+
+# Overview
 
 This is a personal branding and portfolio web application built with Next.js, leveraging a modern tech stack to deliver a dynamic and interactive user experience. The application features a comprehensive backend to manage profile data, an AI-powered chat assistant for user engagement, and a complete administrative panel for content management.
 
@@ -51,7 +87,7 @@ This is a personal branding and portfolio web application built with Next.js, le
     cd branding-web
     ```
 
-2.  Create a `.env.local` file in the root of the project and add the necessary environment variables.
+2.  Create a `.env.development` file in the root of the project and add the necessary environment variables.
 
     ```env
     # Your connection string
@@ -63,6 +99,11 @@ This is a personal branding and portfolio web application built with Next.js, le
     SUPABASE_PROJECT_PASSWORD=
     SUPABASE_PROJECT_REGION=
     SUPABASE_PROJECT_URL=
+
+    NEXT_PUBLIC_SUPABASE_URL=https://$SUPABASE_PROJECT_REF.supabase.co
+    NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY=
+
+    JWT_SECRET=
     ```
 
 ### Installation
